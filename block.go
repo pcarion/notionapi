@@ -307,8 +307,8 @@ func (b ImageBlock) GetType() BlockType {
 }
 
 type Image struct {
-	Caption  []RichText `json:"caption,omitempty"`
-	Type     FileType   `json:"type"`
+	Caption  []RichText  `json:"caption,omitempty"`
+	Type     FileType    `json:"type"`
 	File     *FileObject `json:"file,omitempty"`
 	External *FileObject `json:"external,omitempty"`
 }
@@ -346,8 +346,8 @@ func (b VideoBlock) GetType() BlockType {
 }
 
 type Video struct {
-	Caption  []RichText `json:"caption,omitempty"`
-	Type     FileType   `json:"type"`
+	Caption  []RichText  `json:"caption,omitempty"`
+	Type     FileType    `json:"type"`
 	File     *FileObject `json:"file,omitempty"`
 	External *FileObject `json:"external,omitempty"`
 }
@@ -367,8 +367,8 @@ func (b FileBlock) GetType() BlockType {
 }
 
 type BlockFile struct {
-	Caption  []RichText `json:"caption,omitempty"`
-	Type     FileType   `json:"type"`
+	Caption  []RichText  `json:"caption,omitempty"`
+	Type     FileType    `json:"type"`
 	File     *FileObject `json:"file,omitempty"`
 	External *FileObject `json:"external,omitempty"`
 }
@@ -388,8 +388,8 @@ func (b PdfBlock) GetType() BlockType {
 }
 
 type Pdf struct {
-	Caption  []RichText `json:"caption,omitempty"`
-	Type     FileType   `json:"type"`
+	Caption  []RichText  `json:"caption,omitempty"`
+	Type     FileType    `json:"type"`
 	File     *FileObject `json:"file,omitempty"`
 	External *FileObject `json:"external,omitempty"`
 }
@@ -453,6 +453,7 @@ func decodeBlock(raw map[string]interface{}) (Block, error) {
 	}
 	j, err := json.Marshal(raw)
 	if err != nil {
+		fmt.Printf("@@ Marshal error>%#v\n", raw)
 		return nil, err
 	}
 
